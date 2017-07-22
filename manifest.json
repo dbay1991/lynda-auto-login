@@ -5,20 +5,22 @@
   "description": "This will automatically log me into lynda via the LAPL portal, whether through clicking the button, or visiting the LAPL lynda login page.",
   "version": "1.0",
   "background": {
-    "scripts": ["/scripts/listeners.js"],
+    "scripts": ["/scripts/background.js"],
     "persistent": false
   },
   "browser_action": {
+    "default_icon": "/resources/lynda-enabled.png",
     "default_title": "Login to LAPL Lynda"
   },
   "content_scripts": [
       {
           "matches": ["https://www.lynda.com/*"],
-          "js": ["/scripts/login-to-lynda.js"]
+          "js": ["/scripts/content-script.js"]
       }
   ],
   "permissions": [
       "storage",
       "activeTab"
-  ]
+  ],
+  "minimum_chrome_version": "49.0"
 }
